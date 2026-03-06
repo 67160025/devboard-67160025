@@ -1,12 +1,32 @@
-function Navbar() {
+function Navbar({ favCount }) {
   return (
     <nav
-      style={{ background: "#1e40af", color: "white", padding: "1rem 2rem" }}
+      style={{
+        background: "#1e40af",
+        color: "white",
+        padding: "1rem 2rem",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
     >
-      <h1 style={{ margin: 0, fontSize: "1.5rem" }}>DevBoard</h1>
-      <p style={{ margin: 0, fontSize: "0.9rem", opacity: 0.8 }}>
-        กระดานนักพัฒนา
-      </p>
+      <div>
+        <h1 style={{ margin: 0, fontSize: "1.5rem" }}>DevBoard</h1>
+        <p style={{ margin: 0, fontSize: "0.9rem", opacity: 0.8 }}>
+          กระดานนักพัฒนา
+        </p>
+      </div>
+      <div
+        style={{
+          background: "white",
+          color: "#1e40af",
+          borderRadius: "20px",
+          padding: "0.25rem 1rem",
+          fontWeight: "bold",
+        }}
+      >
+        ❤️ {favCount}
+      </div>
     </nav>
   );
 }

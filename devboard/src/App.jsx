@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import PostList from "./components/PostList";
 import UserCard from "./components/UserCard";
+import AddPostForm from "./components/AddPostForm";
 
-const POSTS = [
+const INITIAL_POSTS = [
   {
     id: 1,
     title: "React คืออะไร?",
@@ -32,9 +34,25 @@ const USERS = [
 ];
 
 function App() {
+  const [posts, setPosts] = useState(INITIAL_POSTS);
+  const [favorites, setFavorites] = useState([]);
+
+  const toggleFavorite = (id) => {
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]
+    );
+  };
+
+  const addPost = (newPost) => {
+    setPosts((prev) => [
+      ...prev,
+      { id: prev.length + 1, ...newPost },
+    ]);
+  };
+
   return (
     <div>
-      <Navbar />
+      <Navbar favCount={favorites.length} />
       <div
         style={{
           maxWidth: "900px",
@@ -46,7 +64,12 @@ function App() {
         }}
       >
         <div>
-          <PostList posts={POSTS} />
+          <AddPostForm onAddPost={addPost} />
+          <PostList
+            posts={posts}
+            favorites={favorites}
+            onToggleFavorite={toggleFavorite}
+          />
         </div>
         <div>
           <h2
