@@ -1,4 +1,4 @@
-function Navbar({ favCount }) {
+function Navbar({ favoriteCount }) {
   return (
     <nav
       style={{
@@ -16,17 +16,20 @@ function Navbar({ favCount }) {
           กระดานนักพัฒนา
         </p>
       </div>
-      <div
-        style={{
-          background: "white",
-          color: "#1e40af",
-          borderRadius: "20px",
-          padding: "0.25rem 1rem",
-          fontWeight: "bold",
-        }}
-      >
-        ❤️ {favCount}
-      </div>
+
+      {favoriteCount > 0 && (
+        <div
+          style={{
+            background: "#e53e3e",
+            borderRadius: "20px",
+            padding: "0.25rem 0.75rem",
+            fontSize: "0.9rem",
+            fontWeight: "bold",
+          }}
+        >
+          ❤️ {favoriteCount} ถูกใจ
+        </div>
+      )}
     </nav>
   );
 }

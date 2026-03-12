@@ -1,4 +1,5 @@
 function UserCard({ name, email }) {
+  // ดึงตัวอักษรแรกมาทำ avatar
   const initials = name
     .split(" ")
     .map((n) => n[0])
