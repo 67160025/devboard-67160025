@@ -11,6 +11,25 @@ function PostList() {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
 
+  async function fetchPosts() {
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+      if (!res.ok) throw new Error("ดึงข้อมูลไม่สำเร็จ");
+      const data = await res.json();
+      setPosts(data.slice(0, 20));
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
   useEffect(() => {
     async function fetchPosts() {
       try {
@@ -52,6 +71,32 @@ function PostList() {
 
   return (
     <div>
+      <h2
+        style={{
+          color: "#2d3748",
+          borderBottom: "2px solid #1e40af",
+          paddingBottom: "0.5rem",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        โพสต์ล่าสุด
+        <button
+          onClick={fetchPosts}
+         style={{
+  background: "#1e40af",
+  color: "white",
+  border: "none",
+  borderRadius: "6px",
+  padding: "0.25rem 0.75rem",
+  cursor: "pointer",
+  fontSize: "0.85rem",
+}}
+        >
+          🔄 โหลดใหม่
+        </button>
+      </h2>
       <h2
         style={{
           color: "#2d3748",
