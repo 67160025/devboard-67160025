@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PostCard from "./PostCard";
 import LoadingSpinner from "./LoadingSpinner";
 import { useFavorites } from "../context/FavoritesContext";
+import PostCount from "./PostCount";
 
 function PostList() {
   const { favorites, toggleFavorite } = useFavorites();
@@ -60,6 +61,8 @@ function PostList() {
       >
         โพสต์ล่าสุด
       </h2>
+
+      <PostCount count={filtered.length} />
 
       <input
         type="text"
