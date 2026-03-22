@@ -5,6 +5,7 @@
   text-align: center;
 }
 
+/* style สำหรับ logo ของ Vite และ React ที่มาใน default template */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -18,6 +19,7 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* animation หมุน logo React ใน default template */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,5 +1,6 @@
+// รับ name และ email มาจาก UserList.jsx ที่วน .map() ส่งลงมา
 function UserCard({ name, email }) {
-  // ดึงตัวอักษรแรกมาทำ avatar
+  // แยกชื่อด้วย space แล้วเอาตัวอักษรแรกของแต่ละคำมาต่อกัน เช่น "สมชาย ใจดี" → "สอ"
   const initials = name
     .split(" ")
     .map((n) => n[0])
@@ -18,13 +19,14 @@ function UserCard({ name, email }) {
         background: "white",
       }}
     >
+      {/* วงกลมสีน้ำเงินแสดงอักษรย่อแทนรูปโปรไฟล์ */}
       <div
         style={{
           width: "40px",
           height: "40px",
           background: "#1e40af",
           color: "white",
-          borderRadius: "50%",
+          borderRadius: "50%", // ทำให้ div เป็นวงกลม
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

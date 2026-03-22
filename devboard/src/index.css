@@ -1,15 +1,15 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; /* font เริ่มต้นของทั้งแอป */
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: light dark; /* บอก browser ว่ารองรับทั้ง light และ dark mode */
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #242424; /* พื้นหลังสีเข้มสำหรับ dark mode */
 
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; /* ทำให้ตัวอักษรคมชัดขึ้น */
+  -webkit-font-smoothing: antialiased; /* ทำให้ font เรียบขึ้นบน Mac/iOS */
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -23,10 +23,10 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: 0; /* ลบ margin เริ่มต้นของ browser ออก */
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 320px; /* ป้องกัน layout แตกบนหน้าจอแคบมาก */
   min-height: 100vh;
 }
 
@@ -44,16 +44,17 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s; /* animation ขอบปุ่มตอน hover */
 }
 button:hover {
   border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto -webkit-focus-ring-color; /* แสดงกรอบเมื่อ focus ด้วย keyboard */
 }
 
+/* ถ้า browser อยู่ใน light mode ให้เปลี่ยนสีพื้นหลังและตัวอักษรให้เหมาะกับ light mode แทน */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
