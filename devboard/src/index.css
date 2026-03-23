@@ -24,8 +24,6 @@ a:hover {
 
 body {
   margin: 0; /* ลบ margin เริ่มต้นของ browser ออก */
-  display: flex;
-  place-items: center;
   min-width: 320px; /* ป้องกัน layout แตกบนหน้าจอแคบมาก */
   min-height: 100vh;
 }
